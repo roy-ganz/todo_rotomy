@@ -27,37 +27,38 @@ ROCKET_DATABASES='{todo_rotomy={url=mysql://USER:PASS@localhost:3306/todo_rotomy
 
 ## Use the server
 
-Open another Terminal and use `curl`:
+Open another terminal and use `curl`:
 
-### Insert a new item  
+#### Insert a new item  
 ```bash
-curl localhost:8000/todo -X POST -d '{{\"title\":\"Water plants\"}}'
+curl localhost:8000/todo -X POST -d '{\"title\":\"Water plants\"}'
 ```
 
-### Update an item  
+#### Update an item  
 ```bash
-curl localhost:8000/todo/ID -X PUT -d '{{\"completed\":\"true\"}}'
+curl localhost:8000/todo/ID -X PUT -d '{\"completed\":\"true\"}'
 ```
 
-### List all todo items
+#### List all todo items
 ```bash
 curl localhost:8000/todo
 ```
-### Get a single item
+#### Get a single item
 ```bash
 curl localhost:8000/todo/ID
 ```
 
-### Get only completed todos in descending order (example of Toql query)
+#### Get only completed todos in descending order (example of Toql query)
 ```bash
 curl localhost:8000/todo?query=-id,completed+eq+1
 ```
 
-### Delete an item
+#### Delete an item
 ```bash
 curl -X DELETE localhost:8000/todo/ID
 ```
 
+## Make your own
 This project may also serve as a starting point for your own REST server. 
 
 However if you plan a big project, it's important to split up your Rust
