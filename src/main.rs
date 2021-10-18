@@ -9,9 +9,7 @@ use toql_mysql_async::MySqlAsync as Toql;
 use toql_rocket::{
     prelude::{Counted, ToqlQuery},
 };
-
 use error::Result;
-
 
 mod error;
 mod mysql_async_pool;
