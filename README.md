@@ -64,3 +64,8 @@ This project may also serve as a starting point for your own REST server.
 However if you plan a big project, it's important to split up your Rust
 project into separate crates to keep compilation time sane. 
 The `#[derive(Toql)` adds _a lot_ of code to your structs.
+
+
+## License
+Todo-rotomy is distributed under the terms of both the MIT license and the
+Apache License (Version 2.0).
