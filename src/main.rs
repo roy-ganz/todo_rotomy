@@ -16,15 +16,15 @@ mod mysql_async_pool;
 use mysql_async_pool::MySqlAsyncPool;
 
 // Here comes our Todo item
-// Notice the `Toql` derive -----------------------v
+// Notice the `Toql` derive ------------v
 #[derive(Debug, Serialize, Deserialize, Toql)]
 #[toql(auto_key = true)]
 pub struct Todo {
-    #[serde(default)] //<- On insert `id` is undefined -> set to 0
-    #[toql(key)] // <-- Required and must come first
+    #[serde(default)] //<-- On insert `id` is undefined -> set to 0
+    #[toql(key)]    // <-- Required and must come first
     pub id: u64,
 
-    #[serde(skip_serializing_if = "Option::is_none")] //<- Dont's serialize, if Toql query does not select it
+    #[serde(skip_serializing_if = "Option::is_none")] //<-- Dont's serialize, if Toql query does not select it
     pub title: Option<String>,
 
     #[serde(skip_serializing_if = "Option::is_none", default)] //<- On insert / update `completed` is not required: default -> None
