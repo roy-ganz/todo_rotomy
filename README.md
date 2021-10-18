@@ -63,4 +63,4 @@ This project may also serve as a starting point for your own REST server.
 
 However if you plan a big project, it's important to split up your Rust
 project into separate crates to keep compilation time sane. 
-The `#[deriev(Toql)` adds _a lot_ of code to your project.
+The `#[derive(Toql)` adds _a lot_ of code to your structs.
