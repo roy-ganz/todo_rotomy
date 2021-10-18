@@ -1,5 +1,5 @@
 use rocket::figment::Figment;
-use rocket_db_pools::{Config, Database};
+use rocket_db_pools::Config;
 use std::borrow::Cow;
 use toql_mysql_async::mysql_async::{Conn, Error, Pool};
 

@@ -1,8 +1,11 @@
 [package]
 name = "todo-rotomy"
 version = "0.1.0"
-authors = ["roy-ganz <roy.ganz@glanis.biz>"]
+authors = ["Roy Ganz <roy.ganz@glanis.biz>"]
 edition = "2018"
+description = "Todo CRUD example with Rocket, Toql and MySQL"
+keywords = ["rocket", "toql", "mysql", "server", "orm", "web"]
+license = "MIT OR Apache-2.0"
 
 [dependencies]
 mysql_async = "0.27"
@@ -12,7 +15,7 @@ serde = "1"
 
 toql = {version = "0.3", features=["serde"], git = "https://github.com/roy-ganz/toql"}
 toql_mysql_async = {version = "0.3", git = "https://github.com/roy-ganz/toql_mysql_async"}
-toql_rocket= {version = "0.3", features=["mysql"], git = "https://github.com/roy-ganz/toql_rocket"}
+toql_rocket= {version = "0.3", features=[], git = "https://github.com/roy-ganz/toql_rocket"}
 
 [patch.crates-io]
 rocket = {path ="../rocket-local/Rocket-master/core/lib"}
