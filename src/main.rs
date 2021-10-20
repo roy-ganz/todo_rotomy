@@ -77,8 +77,7 @@ pub async fn create<'a>(
     mut conn: Connection<TodoDb>,
 ) -> Result<Json<Todo>> {
     let mut toql = Toql::from(&mut *conn, &*cache);
-
-    println!("{:?}", todo);
+    
     // Insert one item
     // paths!(top) => Ignore all nested joins/merges, not important here
     // This will set the `id` to the generated value
@@ -108,9 +107,10 @@ pub async fn get(
 pub async fn query(
     cache: &State<Cache>,
     mut conn: Connection<TodoDb>,
-    toql_query: ToqlQuery, // Fetch Toql query and page from URL query parameters
+    toql_query: ToqlQuery, // <!-- Fetch Toql query and page from URL query parameters
 ) -> Result<Counted<Json<Vec<Todo>>>> 
 {
+
     let mut toql = Toql::from(&mut *conn, &*cache);
 
     // Parse query
@@ -152,6 +152,10 @@ pub async fn rocket() -> Rocket<Build> {
 
     // Cache keeps Toql mapping information
     let cache = CacheBuilder::new().into_cache();
+
+    // Use tracing to see what Toql is doing
+    tracing_subscriber::fmt().try_init().unwrap_or(());
+
     rocket::build()
         .manage(cache)
         .attach(TodoDb::init())

@@ -3,7 +3,7 @@ This is a little REST server built with Rocket, Toql and MySQL.
 
 The server allows to call CRUD functions on a `Todo` item. 
 
-It demonstrates how to easy it is to write REST backends with the Rust programming language.
+It demonstrates how easy it is to write REST backends with the Rust programming language.
 
 
 ## Get it running

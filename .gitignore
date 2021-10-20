@@ -1,2 +1,4 @@
 /target
 Rocket.toml
+.vscode
+Cargo.lock
