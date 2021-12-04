@@ -11,9 +11,9 @@ license = "MIT OR Apache-2.0"
 rocket = {version = "0.5.0-rc.1", features= ["json"]}
 rocket_db_pools = {version = "0.1.0-rc"}
 serde = "1"
-toql = {version = "0.3", features=["serde"], git = "https://github.com/roy-ganz/toql"}
-toql_mysql_async = {version = "0.3", git = "https://github.com/roy-ganz/toql_mysql_async"}
-toql_rocket= {version = "0.3", git = "https://github.com/roy-ganz/toql_rocket"}
+toql = {version = "0.4", features=["serde"], git = "https://github.com/roy-ganz/toql"}
+toql_mysql_async = {version = "0.4", git = "https://github.com/roy-ganz/toql_mysql_async"}
+toql_rocket= {version = "0.4", git = "https://github.com/roy-ganz/toql_rocket"}
 tracing = "0.1"
 tracing-subscriber = "0.2"
 

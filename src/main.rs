@@ -4,7 +4,7 @@ extern crate rocket;
 use rocket::{http::Status, routes, serde::json::Json, Build, Rocket, State};
 use rocket_db_pools::{Connection, Database};
 use serde::{Deserialize, Serialize};
-use toql::prelude::{fields, paths, query, Cache, CacheBuilder, Toql, ToqlApi};
+use toql::prelude::{fields, paths, query, Cache, Toql, ToqlApi};
 use toql_mysql_async::MySqlAsync as Toql;
 use toql_rocket::prelude::{Counted, ToqlQuery};
 use error::Result;
@@ -17,7 +17,7 @@ use mysql_async_pool::MySqlAsyncPool;
 // Here comes our Todo item
 // Notice the `Toql` derive ------------v
 #[derive(Debug, Serialize, Deserialize, Toql)]
-#[toql(auto_key = true)]
+#[toql(auto_key)]
 pub struct Todo {
     #[serde(default)]   //<-- On insert `id` is undefined -> set to 0
     #[toql(key)]        // <-- Required and must come first
@@ -150,7 +150,7 @@ pub async fn rocket() -> Rocket<Build> {
     println!("\n");
 
     // Cache keeps Toql mapping information
-    let cache = CacheBuilder::new().into_cache();
+    let cache = Cache::new();
 
     // Use tracing to see what Toql is doing
     tracing_subscriber::fmt().try_init().unwrap_or(());
