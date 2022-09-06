@@ -130,25 +130,26 @@ pub struct TodoDb(MySqlAsyncPool);
 //fn main() {
 #[launch]
 pub async fn rocket() -> Rocket<Build> {
-    println!("\n");
-    println!("Full CRUD example with Rocket, Toql and MySQL");
-    println!("=============================================\n");
-    println!("This example assumes that you have a MySQL server");
-    println!("running with a database `todo_rotomy`");
-    println!("Run the following SQL to create the table `Todo`");
-    println!("CREATE TABLE `Todo` (`id` int(11) NOT NULL AUTO_INCREMENT,`title` varchar(200) NOT NULL, `completed` tinyint(1) DEFAULT 0, PRIMARY KEY (`id`))");
-    println!();
-    println!("Start the server with:");
-    println!("ROCKET_DATABASES='{{todo_rotomy={{url=mysql://USER:PASS@localhost:3306/todo_rotomy}}}}' cargo run");
-    println!();
-    println!("Create a todo with `curl localhost:8000/todo -X POST -d '{{\"title\":\"Water plants\"}}'`");
-    println!("Update a todo with `curl localhost:8000/todo/ID -X PUT -d '{{\"completed\":\"true\"}}'`");
-    println!("Get a single todo with `curl localhost:8000/todo/ID`");
-    println!("Get all todos with `curl localhost:8000/todo`");
-    println!("Get only completed todos in descending order `curl localhost:8000/todo?query=-id,completed+eq+1`");
-    println!("Delete a todo with `curl -X DELETE localhost:8000/todo/ID`");
-    println!("\n");
+    println!(
+        r#"
+Full CRUD example with Rocket, Toql and MySQL
+=============================================
+This example assumes that you have a MySQL server
+running with a database `todo_rotomy`
+Run the following SQL to create the table `Todo`
+CREATE TABLE `Todo` (`id` int(11) NOT NULL AUTO_INCREMENT,`title` varchar(200) NOT NULL, `completed` tinyint(1) DEFAULT 0, PRIMARY KEY (`id`))
 
+Start the server with
+ROCKET_DATABASES='{{todo_rotomy={{url=mysql://USER:PASS@localhost:3306/todo_rotomy}}}}' cargo run
+
+Create a todo with `curl localhost:8000/todo -X POST -d '{{\"title\":\"Water plants\"}}'`
+Update a todo with `curl localhost:8000/todo/ID -X PUT -d '{{\"completed\":\"true\"}}'`
+Get a single todo with `curl localhost:8000/todo/ID`
+Get all todos with `curl localhost:8000/todo`
+Get only completed todos in descending order `curl localhost:8000/todo?query=-id,completed+eq+1`
+Delete a todo with `curl -X DELETE localhost:8000/todo/ID`
+"#
+    );
     // Cache keeps Toql mapping information
     let cache = Cache::new();
 
